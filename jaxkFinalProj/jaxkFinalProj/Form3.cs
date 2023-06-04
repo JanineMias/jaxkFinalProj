@@ -23,8 +23,8 @@ namespace jaxkFinalProj
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            Form frm_Desti = new Destination();
-            frm_Desti.ShowDialog();
+            Form frm_transact = new Transaction();
+            frm_transact.ShowDialog();
             this.Hide();
         }
         private void btnYes_Click(object sender, EventArgs e)

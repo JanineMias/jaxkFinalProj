@@ -14,7 +14,7 @@ namespace jaxkFinalProj
     public partial class AirlineType : Form
     {
         public static int Capacity,type;
-        public static double transFee, travTax,travIn;
+        public static double transFee, travTax,travIn,BagFee;
        
         public AirlineType()
         {
@@ -33,8 +33,9 @@ namespace jaxkFinalProj
             transFee = 550.0;
             travTax = 4260.0;
             travIn = 4500.0;
-            Form frm_Pass = new Passenger();
-            frm_Pass.ShowDialog();
+            BagFee = 1250.0;
+            Form frm_PassDet = new Destination();
+            frm_PassDet.ShowDialog();
             this.Hide();
             
         }
@@ -45,10 +46,11 @@ namespace jaxkFinalProj
             transFee = 550.0;
             travTax = 5700.0;
             travIn = 6500.0;
-            Form frm_Pass = new Passenger();
-            frm_Pass.ShowDialog();
+            BagFee = 2850.0;
+            Form frm_PassDet = new Destination();
+            frm_PassDet.ShowDialog();
             this.Hide();
-            
+
         }
         public  void btnReg_Click(object sender, EventArgs e)
         {
@@ -57,10 +59,11 @@ namespace jaxkFinalProj
             transFee = 255.0;
             travTax = 2500.0;
             travIn = 950.0;
-            Form frm_Pass = new Passenger();
-            frm_Pass.ShowDialog();
+            BagFee = 950;
+            Form frm_PassDet = new Destination();
+            frm_PassDet.ShowDialog();
             this.Hide();
-            
+
         }
       
 

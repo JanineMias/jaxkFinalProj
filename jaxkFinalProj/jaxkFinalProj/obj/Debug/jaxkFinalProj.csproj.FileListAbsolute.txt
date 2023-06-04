@@ -14,3 +14,10 @@ C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\obj\Debug\jaxkFinalPr
 C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\obj\Debug\jaxkFinalProj.Passenger.resources
 C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\obj\Debug\jaxkFinalProj.Destination.resources
 C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\obj\Debug\jaxkFinalProj.Transaction.resources
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\MySql.Data.dll
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\System.Memory.dll
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\System.Buffers.dll
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\bin\Debug\MySql.Data.xml
+C:\Users\User8401\source\repos\jaxkFinalProj\jaxkFinalProj\obj\Debug\jaxkFinalProj.csproj.CopyComplete
