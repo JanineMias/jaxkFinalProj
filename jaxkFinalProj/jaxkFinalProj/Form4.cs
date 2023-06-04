@@ -21,9 +21,10 @@ namespace jaxkFinalProj
     public partial class Passenger : Form
     {
         int maxCap;
-        public static double insurance,BagFee,TravFee,discount;
+        public static double insurance,BagFee,TravFee,discount, totalFee,FinalFee;
         public static String name;
-        public static int age,count,TravType;
+        public static int age,TravType;
+        public static int count;
         public static float refNum;
         public Passenger()
         {
@@ -40,12 +41,37 @@ namespace jaxkFinalProj
             TravType = AirlineType.type;
             BagFee = AirlineType.BagFee;
             maxCap = AirlineType.Capacity;
-            insurance = AirlineType.travIn;
+            
 
             TravFee = Destination.travFare;
+            count = passCapacity.count;
+            FinalFee = passCapacity.finalTotFee;
             this.Hide();
+            
         }
-        
+        private void rbtnNo_Checked(object sender, EventArgs e)
+        {
+            insurance = 0.00;
+        }
+        private void rbtnYes_Checked(object sender, EventArgs e)
+        {
+            // use Passenger.insurance for other form
+            if (AirlineType.type == 1)
+            {
+                insurance = 4260.0;
+            }
+            else if (AirlineType.type == 2)
+            {
+                insurance = 5700.0;
+            }
+            else if (AirlineType.type == 3)
+            {
+                insurance = 2500.0;
+            }
+
+
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             Form frm_airType = new AirlineType();
@@ -54,8 +80,9 @@ namespace jaxkFinalProj
         }
         private void btnPoceed_Click(object sender, EventArgs e)
         {
-            
-                try
+            MessageBox.Show(" " + insurance);
+
+            try
             {
                 //txtName Validation
                 if (txtName.Text == "")
@@ -65,7 +92,7 @@ namespace jaxkFinalProj
                     txtName.Clear();
                     txtName.Focus();
                 }
-                else 
+                else
                 {
                     name = txtName.Text;
                 }
@@ -84,27 +111,12 @@ namespace jaxkFinalProj
                 {
                     age = int.Parse(txtAge.Text);
                 }
-
-
-                //Age Validation
-                if (age < 18)
-                {
-                    MessageBox.Show("Cannot travel alone and must be accompanied by at least one (1) Adult and/or Senior Citizen");
-                }
-                else if (age < 59 || age >= 19)
-                {
-                    MessageBox.Show("Regular Computation applies");
-                }
-                else if (age > 59)
-                {
-                    discount = TravFee - (TravFee * .20);
-                    MessageBox.Show("Tax Exempted and will get on Total Travel Destination computation only and 20% discount");
-                }
-
-                
-
             }
-            catch {
+
+
+
+            catch
+            {
                 MessageBox.Show("INVALID INPUT");
                 txtAge.Clear();
                 txtName.Clear();
@@ -114,6 +126,8 @@ namespace jaxkFinalProj
                 frm_PassDet.ShowDialog();
                 this.Hide();
             }
+
+
             sql = "Insert into `receipt details` ( `Reference Number`, `NAME`, `AGE`, `Travel Type`, `Baggage Fee`, `Travel Fee`, `Insurance Fee`) values " +
                 "('" + referNum.Text + "' " +
                 ",'" +name+ "' " +
@@ -130,44 +144,88 @@ namespace jaxkFinalProj
             }
             else
             {
+                if (count == 1)
+                {
+                    if (age < 18)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you accomapnied by at least one (1) Adult?", "Passenger accepted to board the train", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            totalFee = TravFee + insurance + BagFee;
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            MessageBox.Show("Must be accompanied by one (1) Adult or Senior Citizen");
+                            txtAge.Clear();
+                            txtName.Clear();
+                            txtName.Focus();
+                            Form frm_PassDet = new Passenger();
+                            frm_PassDet.ShowDialog();
+                            this.Hide();
+                        }
+                        
+                        
+                    }
+                    else if (age < 59 || age >= 19)
+                    {
+                MessageBox.Show("Regular Computation applies");
+
+                totalFee = TravFee + insurance + BagFee;
+                    }
+                    else if (age > 59)
+                    {
+                        MessageBox.Show("Tax Exempted and will get on Total Travel Destination computation only and 20% discount");
+                        discount = (TravFee * .20);
+                        totalFee = TravFee - discount;
+                    }
+                }
+                else
+                {
+                    if (age < 18)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you accomapnied by at least one (1) Adult?", "Passenger accepted to board the train", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            totalFee = FinalFee + (TravFee + insurance + BagFee);
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            MessageBox.Show("Must be accompanied by one (1) Adult or Senior Citizen");
+                            txtAge.Clear();
+                            txtName.Clear();
+                            txtName.Focus();
+                            Form frm_PassDet = new Passenger();
+                            frm_PassDet.ShowDialog();
+                            this.Hide();
+                        }
+                        
+                        
+                    }
+                    else if (age < 59 || age >= 19)
+                    {
+                //MessageBox.Show("Regular Computation applies");
+
+                totalFee = FinalFee + (TravFee + insurance + BagFee);
+                    }
+                    else if (age > 59)
+                    {
+                        //MessageBox.Show("Tax Exempted and will get on Total Travel Destination computation only and 20% discount");
+                        discount = (TravFee * .20);
+                        totalFee = FinalFee + (TravFee - discount);
+                    }
+                }
+                
+
                 Form frm_PassCap = new passCapacity();
                 frm_PassCap.ShowDialog();
                 this.Hide();
                 this.maxCap--;
 
             }
-
+           
            this.Hide();
             }
-            
-
-
-            // relate this with form6 ( auto load/ display)
-        
-
-        private void rbtnNo_Checked(object sender, EventArgs e)
-        {
-           insurance = 0;
-
-        }
-        private void rbtnYes_Checked(object sender, EventArgs e)
-        {
-            // use Passenger.insurance for other form
-            if (AirlineType.type == 1)
-            {
-                insurance = 4260.0;
-            }
-            else if (AirlineType.type == 2)
-            {
-               insurance = 5700.0;
-            }
-            else if (AirlineType.type == 3)
-            {
-                insurance = 2500;
-            }
-
            
-        }
 
         //DBConnection
         MySqlConnection con = new MySqlConnection("server = localhost; userid = root; password = ; database = airplane database; ");

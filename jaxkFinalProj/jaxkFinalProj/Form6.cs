@@ -20,18 +20,22 @@ namespace jaxkFinalProj
 {
     public partial class Transaction : Form
     {
-    
 
+        
+        public static float reference;
         // initialization of Database
         public Transaction()
         {
             InitializeComponent();
+            reference = Passenger.refNum;
         }
         
 
         public void Transaction_Load(object sender, EventArgs e)
         {
-           
+            
+            
+            this.Hide();
         }
 
         public void btnView_Click(object sender, EventArgs e)
@@ -64,8 +68,7 @@ namespace jaxkFinalProj
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string deleteQuery = "Delete * from `receipt details`";
-            lvCustomerDetails.Items.Clear();
+           
         }
     }
 
