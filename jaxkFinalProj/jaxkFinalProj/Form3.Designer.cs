@@ -81,6 +81,7 @@
             this.Name = "passCapacity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Passenger Details";
+            this.Load += new System.EventHandler(this.passCapacity_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

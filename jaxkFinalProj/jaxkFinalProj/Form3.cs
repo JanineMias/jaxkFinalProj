@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,10 +26,9 @@ namespace jaxkFinalProj
         {
             inTotFee = Passenger.totalFee;
             count = Passenger.count;
-            
+            this.Hide();
         }
-      
-        
+
         private void btnNo_Click(object sender, EventArgs e)
         {
             finalTotFee = inTotFee;

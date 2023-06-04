@@ -20,7 +20,7 @@ namespace jaxkFinalProj
 {
     public partial class Transaction : Form
     {
-
+        public static double totalFee, payment, change;
         
         public static float reference;
         // initialization of Database
@@ -33,11 +33,17 @@ namespace jaxkFinalProj
 
         public void Transaction_Load(object sender, EventArgs e)
         {
-            
-            
+
+            totalFee = passCapacity.finalTotFee;
+            lblTFee.Text = Convert.ToString(totalFee);
             this.Hide();
         }
-
+        public void btnCalc_Click(object sender, EventArgs e)
+        {
+            payment = int.Parse(txtPayment.Text);
+            change = totalFee - payment;
+            lblChng.Text = Convert.ToString(change);
+        }
         public void btnView_Click(object sender, EventArgs e)
         {
             // start of printing data from XAMPP into ListView
@@ -58,7 +64,7 @@ namespace jaxkFinalProj
                 lv.SubItems.Add(Reader.GetString(2).ToString());
                 lv.SubItems.Add(Reader.GetString(3).ToString());
                 lv.SubItems.Add(Reader.GetString(4).ToString());
-                lv.SubItems.Add(Reader.GetString(5).ToString());
+                
                 lv.SubItems.Add(Reader.GetString(6).ToString());
                 lvCustomerDetails.Items.Add(lv);
 

@@ -37,7 +37,6 @@
             this.lblPayment = new System.Windows.Forms.Label();
             this.lblChange = new System.Windows.Forms.Label();
             this.lblTFee = new System.Windows.Forms.Label();
-            this.lblPment = new System.Windows.Forms.Label();
             this.lblChng = new System.Windows.Forms.Label();
             this.lvCustomerDetails = new System.Windows.Forms.ListView();
             this.colRefNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,6 +47,8 @@
             this.colInsurance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnView = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.txtPayment = new System.Windows.Forms.TextBox();
+            this.btnCalc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -145,18 +146,6 @@
             this.lblTFee.TabIndex = 8;
             this.lblTFee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblPment
-            // 
-            this.lblPment.BackColor = System.Drawing.Color.Lavender;
-            this.lblPment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPment.Location = new System.Drawing.Point(576, 340);
-            this.lblPment.Name = "lblPment";
-            this.lblPment.Size = new System.Drawing.Size(175, 20);
-            this.lblPment.TabIndex = 9;
-            this.lblPment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblChng
             // 
             this.lblChng.BackColor = System.Drawing.Color.Lavender;
@@ -241,6 +230,24 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtPayment
+            // 
+            this.txtPayment.Location = new System.Drawing.Point(576, 341);
+            this.txtPayment.Name = "txtPayment";
+            this.txtPayment.Size = new System.Drawing.Size(175, 20);
+            this.txtPayment.TabIndex = 14;
+            // 
+            // btnCalc
+            // 
+            this.btnCalc.BackColor = System.Drawing.Color.Thistle;
+            this.btnCalc.ForeColor = System.Drawing.Color.Black;
+            this.btnCalc.Location = new System.Drawing.Point(657, 395);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(94, 23);
+            this.btnCalc.TabIndex = 15;
+            this.btnCalc.Text = "CALCULATE";
+            this.btnCalc.UseVisualStyleBackColor = false;
+            // 
             // Transaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,11 +255,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(782, 480);
+            this.Controls.Add(this.btnCalc);
+            this.Controls.Add(this.txtPayment);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.lvCustomerDetails);
             this.Controls.Add(this.lblChng);
-            this.Controls.Add(this.lblPment);
             this.Controls.Add(this.lblTFee);
             this.Controls.Add(this.lblChange);
             this.Controls.Add(this.lblPayment);
@@ -267,6 +275,7 @@
             this.Text = "TRANSACTION";
             this.Load += new System.EventHandler(this.Transaction_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -280,7 +289,6 @@
         private System.Windows.Forms.Label lblPayment;
         private System.Windows.Forms.Label lblChange;
         private System.Windows.Forms.Label lblTFee;
-        private System.Windows.Forms.Label lblPment;
         private System.Windows.Forms.Label lblChng;
         private System.Windows.Forms.ListView lvCustomerDetails;
         private System.Windows.Forms.ColumnHeader colRefNum;
@@ -291,5 +299,7 @@
         private System.Windows.Forms.ColumnHeader colInsurance;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtPayment;
+        private System.Windows.Forms.Button btnCalc;
     }
 }

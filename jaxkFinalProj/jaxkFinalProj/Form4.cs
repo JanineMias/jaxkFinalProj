@@ -80,7 +80,7 @@ namespace jaxkFinalProj
         }
         private void btnPoceed_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(" " + insurance);
+            
 
             try
             {
@@ -214,8 +214,8 @@ namespace jaxkFinalProj
                         totalFee = FinalFee + (TravFee - discount);
                     }
                 }
-                
 
+                MessageBox.Show("total fee: " + totalFee);
                 Form frm_PassCap = new passCapacity();
                 frm_PassCap.ShowDialog();
                 this.Hide();
