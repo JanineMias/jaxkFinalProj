@@ -21,6 +21,7 @@ namespace jaxkFinalProj
     public partial class Transaction : Form
     {
         public static double totalFee, payment, change;
+        public static string TInformation;
         
         public static float reference;
         // initialization of Database
@@ -33,16 +34,27 @@ namespace jaxkFinalProj
 
         public void Transaction_Load(object sender, EventArgs e)
         {
-
+            TInformation = Destination.travInfo;
             totalFee = passCapacity.finalTotFee;
             lblTFee.Text = Convert.ToString(totalFee);
             this.Hide();
+
+            lblTInformation.Text = TInformation;
         }
         public void btnCalc_Click(object sender, EventArgs e)
         {
-            payment = int.Parse(txtPayment.Text);
-            change = totalFee - payment;
-            lblChng.Text = Convert.ToString(change);
+            payment = Double.Parse(txtPayment.Text);
+            change = payment - totalFee;
+            if (change > 0)
+            {
+                lblChng.Text = change.ToString();
+            }
+            else
+            {
+                MessageBox.Show("You have insufficient payment. Please input necessary amount");
+                txtPayment.Clear();
+                txtPayment.Focus();
+            }
         }
         public void btnView_Click(object sender, EventArgs e)
         {
@@ -71,12 +83,10 @@ namespace jaxkFinalProj
             }
             Reader.Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void btnCLear_CLick(object sender, EventArgs e)
         {
-           
+          
+            
         }
     }
-
-        
     }

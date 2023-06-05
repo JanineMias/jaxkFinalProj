@@ -124,23 +124,18 @@ namespace jaxkFinalProj
 
                 Form frm_PassDet = new Passenger();
                 frm_PassDet.ShowDialog();
-                this.Hide();
+                this.Close();
             }
 
 
-            sql = "Insert into `receipt details` ( `Reference Number`, `NAME`, `AGE`, `Travel Type`, `Baggage Fee`, `Travel Fee`, `Insurance Fee`) values " +
-                "('" + referNum.Text + "' " +
-                ",'" +name+ "' " +
-                ",'" +age+ "' " +
-                ",'" +TravType+ "' " +
-                ",'" +BagFee+ "' " +
-                ",'" +TravFee + "' " +
-                ",'" +insurance+ "')";
-            DBConnection(sql, "unable to register passenger details", "passenger details saved to database!");
+            
 
             if (this.maxCap == 0)
             {
                 MessageBox.Show("SORRY...YOU HAVE EXCEEDED THE NUMBER OF PASSENGERS REQUIRED");
+                Form frm_transact = new Transaction();
+                frm_transact.ShowDialog();
+                this.Close();
             }
             else
             {
@@ -156,12 +151,7 @@ namespace jaxkFinalProj
                         else if (dialogResult == DialogResult.No)
                         {
                             MessageBox.Show("Must be accompanied by one (1) Adult or Senior Citizen");
-                            txtAge.Clear();
-                            txtName.Clear();
-                            txtName.Focus();
-                            Form frm_PassDet = new Passenger();
-                            frm_PassDet.ShowDialog();
-                            this.Hide();
+                            this.Close();
                         }
                         
                         
@@ -191,12 +181,7 @@ namespace jaxkFinalProj
                         else if (dialogResult == DialogResult.No)
                         {
                             MessageBox.Show("Must be accompanied by one (1) Adult or Senior Citizen");
-                            txtAge.Clear();
-                            txtName.Clear();
-                            txtName.Focus();
-                            Form frm_PassDet = new Passenger();
-                            frm_PassDet.ShowDialog();
-                            this.Hide();
+                            this.Close();
                         }
                         
                         
@@ -214,6 +199,15 @@ namespace jaxkFinalProj
                         totalFee = FinalFee + (TravFee - discount);
                     }
                 }
+                sql = "Insert into `receipt details` ( `Reference Number`, `NAME`, `AGE`, `Travel Type`, `Baggage Fee`, `Travel Fee`, `Insurance Fee`) values " +
+                "('" + referNum.Text + "' " +
+                ",'" + name + "' " +
+                ",'" + age + "' " +
+                ",'" + TravType + "' " +
+                ",'" + BagFee + "' " +
+                ",'" + TravFee + "' " +
+                ",'" + insurance + "')";
+                DBConnection(sql, "unable to register passenger details", "passenger details saved to database!");
 
                 MessageBox.Show("total fee: " + totalFee);
                 Form frm_PassCap = new passCapacity();

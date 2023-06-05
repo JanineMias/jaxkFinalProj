@@ -80,11 +80,12 @@
             this.lblTInformation.BackColor = System.Drawing.Color.Lavender;
             this.lblTInformation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTInformation.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTInformation.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTInformation.ForeColor = System.Drawing.Color.Black;
             this.lblTInformation.Location = new System.Drawing.Point(494, 141);
             this.lblTInformation.Name = "lblTInformation";
             this.lblTInformation.Size = new System.Drawing.Size(257, 131);
             this.lblTInformation.TabIndex = 3;
+            this.lblTInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -138,25 +139,25 @@
             // 
             this.lblTFee.BackColor = System.Drawing.Color.Lavender;
             this.lblTFee.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTFee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTFee.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTFee.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTFee.ForeColor = System.Drawing.Color.Black;
             this.lblTFee.Location = new System.Drawing.Point(576, 309);
             this.lblTFee.Name = "lblTFee";
             this.lblTFee.Size = new System.Drawing.Size(175, 20);
             this.lblTFee.TabIndex = 8;
-            this.lblTFee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTFee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblChng
             // 
             this.lblChng.BackColor = System.Drawing.Color.Lavender;
             this.lblChng.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblChng.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChng.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblChng.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChng.ForeColor = System.Drawing.Color.Black;
             this.lblChng.Location = new System.Drawing.Point(576, 370);
             this.lblChng.Name = "lblChng";
             this.lblChng.Size = new System.Drawing.Size(175, 20);
             this.lblChng.TabIndex = 10;
-            this.lblChng.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblChng.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvCustomerDetails
             // 
@@ -228,14 +229,16 @@
             this.btnClear.TabIndex = 13;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.button1_Click);
+            this.btnClear.Click += new System.EventHandler(this.btnCLear_CLick);
             // 
             // txtPayment
             // 
-            this.txtPayment.Location = new System.Drawing.Point(576, 341);
+            this.txtPayment.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPayment.Location = new System.Drawing.Point(576, 336);
             this.txtPayment.Name = "txtPayment";
-            this.txtPayment.Size = new System.Drawing.Size(175, 20);
+            this.txtPayment.Size = new System.Drawing.Size(175, 24);
             this.txtPayment.TabIndex = 14;
+            this.txtPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnCalc
             // 
@@ -247,6 +250,7 @@
             this.btnCalc.TabIndex = 15;
             this.btnCalc.Text = "CALCULATE";
             this.btnCalc.UseVisualStyleBackColor = false;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // Transaction
             // 
@@ -269,7 +273,9 @@
             this.Controls.Add(this.lblTInformation);
             this.Controls.Add(this.lblCustomerDetails);
             this.Controls.Add(this.lblHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Transaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRANSACTION";

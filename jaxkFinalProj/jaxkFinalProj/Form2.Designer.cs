@@ -105,7 +105,10 @@
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.btnBus);
             this.Controls.Add(this.btnPri);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AirlineType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Airline Type";
