@@ -13,6 +13,7 @@ namespace jaxkFinalProj
     public partial class Destination : Form
     {
         public static double travFare;
+        public static string travInfo;
         
         public Destination()
         {
@@ -25,6 +26,7 @@ namespace jaxkFinalProj
         
             private void optA_Click(object sender, EventArgs e)
         {
+
             if (AirlineType.type == 1)
             {
                 travFare = 8000.0;
@@ -37,7 +39,7 @@ namespace jaxkFinalProj
             {
                 travFare = 3500.0;
             }
-
+            travInfo = "MANILA to BATANES";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -56,7 +58,7 @@ namespace jaxkFinalProj
             {
                 travFare = 3900.0;
             }
-
+            travInfo = "BATANES to MANILA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -75,7 +77,7 @@ namespace jaxkFinalProj
             {
                 travFare = 3200.0;
             }
-
+            travInfo = "MANILA to PALAWAN";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -94,7 +96,7 @@ namespace jaxkFinalProj
             {
                 travFare = 3575.0;
             }
-
+            travInfo = "PALAWAN to MANILA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -113,7 +115,7 @@ namespace jaxkFinalProj
             {
                 travFare = 12055.0;
             }
-
+            travInfo = "MANILA to SOUTH KOREA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -132,7 +134,7 @@ namespace jaxkFinalProj
             {
                 travFare = 13100.0;
             }
-
+            travInfo = "SOUTH KOREA to MANILA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -151,7 +153,7 @@ namespace jaxkFinalProj
             {
                 travFare = 27800.0;
             }
-
+            travInfo = "MANILA to JAPAN";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -170,7 +172,7 @@ namespace jaxkFinalProj
             {
                 travFare = 29400.0;
             }
-
+            travInfo = "JAPAN to MANILA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -189,7 +191,7 @@ namespace jaxkFinalProj
             {
                 travFare = 3200.0;
             }
-
+            travInfo = "MANILA to VIETNAM";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
@@ -208,7 +210,7 @@ namespace jaxkFinalProj
             {
                 travFare = 4600.0;
             }
-
+            travInfo = "VIETNAM to MANILA";
             Form frm_Pass = new Passenger();
             frm_Pass.ShowDialog();
             this.Hide();
