@@ -32,7 +32,7 @@ namespace jaxkFinalProj
         private void btnNo_Click(object sender, EventArgs e)
         {
             finalTotFee = inTotFee;
-            MessageBox.Show("Final Fee:" + finalTotFee);
+           // MessageBox.Show("Final Fee:" + finalTotFee);
             Form frm_transact = new Transaction();
             frm_transact.ShowDialog();
             this.Hide();

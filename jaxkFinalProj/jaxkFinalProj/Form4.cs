@@ -23,9 +23,9 @@ namespace jaxkFinalProj
         int maxCap;
         public static double insurance,BagFee,TravFee,discount, totalFee,FinalFee;
         public static String name;
-        public static int age,TravType;
-        public static int count;
-        public static float refNum;
+        public static int age,TravType,count,refNum,reference;
+        public static int[] refArray = new int[AirlineType.Capacity];
+       // public static List<int> refArray =  new List<int>();
         public Passenger()
         {
 
@@ -35,13 +35,13 @@ namespace jaxkFinalProj
         public void passDetails_Load(object sender, EventArgs e)
         {
             Random ran = new Random(); 
-            float refNum = ran.Next(1, 1000);
+            int refNum = ran.Next(1, 1000);
             referNum.Text = refNum.ToString();
 
             TravType = AirlineType.type;
             BagFee = AirlineType.BagFee;
             maxCap = AirlineType.Capacity;
-            
+            reference = int.Parse(referNum.Text);
 
             TravFee = Destination.travFare;
             count = passCapacity.count;
@@ -49,6 +49,8 @@ namespace jaxkFinalProj
             this.Hide();
             
         }
+        
+
         private void rbtnNo_Checked(object sender, EventArgs e)
         {
             insurance = 0.00;
@@ -158,19 +160,26 @@ namespace jaxkFinalProj
                     }
                     else if (age < 59 || age >= 19)
                     {
-                MessageBox.Show("Regular Computation applies");
+               // MessageBox.Show("Regular Computation applies");
 
                 totalFee = TravFee + insurance + BagFee;
                     }
                     else if (age > 59)
                     {
-                        MessageBox.Show("Tax Exempted and will get on Total Travel Destination computation only and 20% discount");
+                      //  MessageBox.Show("Tax Exempted and will get on Total Travel Destination computation only and 20% discount");
                         discount = (TravFee * .20);
                         totalFee = TravFee - discount;
                     }
+
+
+                    
                 }
+
+
                 else
                 {
+
+                    
                     if (age < 18)
                     {
                         DialogResult dialogResult = MessageBox.Show("Are you accomapnied by at least one (1) Adult?", "Passenger accepted to board the train", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -208,15 +217,17 @@ namespace jaxkFinalProj
                 ",'" + TravFee + "' " +
                 ",'" + insurance + "')";
                 DBConnection(sql, "unable to register passenger details", "passenger details saved to database!");
-
-                MessageBox.Show("total fee: " + totalFee);
+                refArray[count - 1] = reference;
+                MessageBox.Show(""+refArray[count - 1]);
+              //MessageBox.Show("total fee: " + totalFee);
                 Form frm_PassCap = new passCapacity();
                 frm_PassCap.ShowDialog();
                 this.Hide();
                 this.maxCap--;
 
             }
-           
+
+            
            this.Hide();
             }
            
